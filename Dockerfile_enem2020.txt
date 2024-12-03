@@ -1,0 +1,15 @@
+# Usar a imagem base do Python
+FROM python:3.9-slim
+
+# Definir o diretório de trabalho
+WORKDIR /app
+
+# Copiar os arquivos de requirements e o código para o contêiner
+COPY requirements.txt .
+COPY ConnectWithSQLite.py .
+
+# Instalar as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Comando para executar o script Python
+CMD ["python", "ConnectWithSQLite.py"]
